@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Namuunaa 🖤</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* DARK MODE PALETTE */
+            --bg-color: #0a0a0a;
+            --card-bg: #1c1c1c;
+            --accent: #ff0055; /* Neon Pink/Red */
+            --text-main: #ffffff;
+            --text-sec: #b3b3b3;
+            --gold: #ffd700;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 85, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 85, 0.05) 0%, transparent 25%);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: default;
+        }
+
+        /* --- Stylish Cursor --- */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="%23ff0055" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>'), auto;
+        }
+
+        /* --- Animations --- */
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; opacity: 0; }
+        .hidden { display: none !important; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 10px rgba(255, 0, 85, 0.2); }
+            50% { text-shadow: 0 0 20px rgba(255, 0, 85, 0.8), 0 0 30px var(--accent); }
+            100% { text-shadow: 0 0 10px rgba(255, 0, 85, 0.2); }
+        }
+
+        /* --- Typography --- */
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            animation: pulseGlow 3s infinite;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-sec);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 12px 30px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        /* --- Container --- */
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid #333;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        }
+
+        /* --- Surprise 1: Flower --- */
+        .flower-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px red);
+            transition: transform 1s;
+            cursor: pointer;
+        }
+        .flower-icon:hover { transform: rotate(360deg) scale(1.2); }
+
+        /* --- Surprise 2: Text Cards (Replacing Photos) --- */
+        .card-frame {
+            background: var(--card-bg);
+            padding: 30px;
+            border-left: 3px solid var(--accent);
+            margin-bottom: 20px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: white;
+        }
+
+        /* --- Surprise 3: Envelope --- */
+        .envelope-area {
+            font-size: 4rem;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .letter-content {
+            text-align: left;
+            background: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Playfair Display', serif;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* --- Surprise 4: Game --- */
+        .game-box {
+            height: 250px;
+            border: 1px dashed #555;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .glow-heart {
+            position: absolute;
+            color: var(--accent);
+            font-size: 24px;
+            cursor: pointer;
+            filter: drop-shadow(0 0 5px var(--accent));
+        }
+
+        /* --- Surprise 5: YES/NO --- */
+        .yes-btn { background: var(--accent); color: white; border: none; }
+        .no-btn { background: #333; color: white; border: none; position: relative; }
+
+        /* --- Floating Particles --- */
+        .particle {
+            position: fixed;
+            background: var(--accent);
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="section-0" class="container fade-in">
+        <h1>Hey Namuunaa...</h1>
+        <p>I made something special for you. <br>Because you deserve the best.</p>
+        <button class="btn" onclick="nextSection(1)">Enter 🖤</button>
+    </div>
+
+    <div id="section-1" class="container hidden">
+        <div class="flower-icon" onclick="revealFlower()">🌹</div>
+        <div id="flower-msg">
+            <p>Tap the rose...</p>
+        </div>
+        <button id="btn-1" class="btn hidden" onclick="nextSection(2)">Continue</button>
+    </div>
+
+    <div id="section-2" class="container hidden">
+        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem;">Reason #<span id="card-count">1</span></p>
+        <div class="card-frame" id="card-text">
+            </div>
+        <button class="btn" onclick="nextCard()" id="next-card-btn">Next Reason</button>
+        <button id="btn-2" class="btn hidden" onclick="nextSection(3)">Next Surprise</button>
+    </div>
+
+    <div id="section-3" class="container hidden">
+        <h1>A Letter for You</h1>
+        <div class="envelope-area" onclick="openLetter()">📩</div>
+        <div id="letter-text" class="letter-content fade-in">
+            <p><strong>Dear Namuunaa,</strong></p>
+            <p>I don't say it enough, but you are incredible. In a chaotic world, you are my calm and my excitement all at once.</p>
+            <p>You make the ordinary moments feel special. I admire your strength, your style, and your heart.</p>
+            <p>I'm so lucky to be the one standing next to you.</p>
+            <p style="text-align: right; margin-top: 20px;"><strong>- Huvitugs</strong></p>
+        </div>
+        <button id="btn-3" class="btn hidden" onclick="nextSection(4)">Let's Play</button>
+    </div>
+
+    <div id="section-4" class="container hidden">
+        <h1>Catch the Spark</h1>
+        <p>Click 5 hearts to unlock the question.</p>
+        <p>Score: <span id="score">0</span>/5</p>
+        <div class="game-box" id="game-area"></div>
+        <button id="btn-4" class="btn hidden" onclick="nextSection(5)">Unlock</button>
+    </div>
+
+    <div id="section-5" class="container hidden">
+        <p>Everything leads to this.</p>
+        <h1 style="font-size: 2.5rem;">Will You Be My Valentine?</h1>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px;">
+            <button class="btn yes-btn" onclick="sayYes()">YES 🖤</button>
+            <button class="btn no-btn" id="no-btn" onmouseover="runAway()" onclick="runAway()">NO</button>
+        </div>
+    </div>
+
+    <div id="section-6" class="container hidden">
+        <h1 style="font-size: 4rem;">YES!</h1>
+        <p>Best. Decision. Ever.</p>
+        <p>See you soon, Namuunaa.</p>
+        <p>- Huvitugs 🖤</p>
+    </div>
+
+    <script>
+        /* --- CONFIGURATION --- */
+        // Since you have no photos, we use text cards here
+        const reasons = [
+            "Your energy pulls me in every single time.",
+            "You look stunning in black (and everything else).",
+            "You understand me like no one else does.",
+            "Huvitugs + Namuunaa = Perfect Team."
+        ];
+
+        /* --- LOGIC --- */
+        
+        function nextSection(id) {
+            document.querySelectorAll('.container').forEach(el => el.classList.add('hidden'));
+            const next = document.getElementById('section-' + id);
+            next.classList.remove('hidden');
+            next.classList.add('fade-in');
+
+            if(id === 2) loadCard();
+            if(id === 4) startGame();
+        }
+
+        // Section 1: Flower Text
+        function revealFlower() {
+            const msg = document.getElementById('flower-msg');
+            msg.innerHTML = "<h3 style='color: #ff0055'>You are rare.</h3><p>Just like a rose blooming in the dark.</p>";
+            msg.classList.add('fade-in');
+            document.getElementById('btn-1').classList.remove('hidden');
+        }
+
+        // Section 2: Reasons Slider
+        let cardIndex = 0;
+        function loadCard() {
+            document.getElementById('card-text').innerHTML = reasons[cardIndex];
+            document.getElementById('card-count').innerText = cardIndex + 1;
+        }
+        function nextCard() {
+            cardIndex++;
+            if(cardIndex < reasons.length) {
+                loadCard();
+            } else {
+                document.getElementById('next-card-btn').classList.add('hidden');
+                document.getElementById('btn-2').classList.remove('hidden');
+                document.getElementById('card-text').innerHTML = "And a million other reasons...";
+            }
+        }
+
+        // Section 3: Letter
+        function openLetter() {
+            document.querySelector('.envelope-area').style.display = 'none';
+            document.getElementById('letter-text').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('btn-3').classList.remove('hidden');
+            }, 1500);
+        }
+
+        // Section 4: Game
+        let score = 0;
+        function startGame() {
+            const box = document.getElementById('game-area');
+            const interval = setInterval(() => {
+                if(score >= 5) {
+                    clearInterval(interval);
+                    box.innerHTML = "<h2 style='color:white; margin-top:100px;'>Unlocked 🔓</h2>";
+                    document.getElementById('btn-4').classList.remove('hidden');
+                    return;
+                }
+                
+                const heart = document.createElement('div');
+                heart.classList.add('glow-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 90 + '%';
+                heart.style.top = Math.random() * 80 + '%';
+                
+                heart.onclick = () => {
+                    score++;
+                    document.getElementById('score').innerText = score;
+                    heart.remove();
+                    // Sparkle effect on click
+                    createSparkle(event.clientX, event.clientY);
+                };
+
+                box.appendChild(heart);
+                setTimeout(() => heart.remove(), 1500); // Speed of disappearing
+            }, 700);
+        }
+
+        // Section 5: Runaway Button
+        function runAway() {
+            const btn = document.getElementById('no-btn');
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function sayYes() {
+            nextSection(6);
+            launchConfetti();
+        }
+
+        // Background Particles
+        function createParticles() {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.animation = `fadeIn ${Math.random() * 5 + 2}s infinite alternate`;
+            document.body.appendChild(p);
+        }
+        for(let i=0; i<50; i++) createParticles();
+
+        // Simple Confetti
+        function launchConfetti() {
+            for(let i=0; i<100; i++) {
+                const c = document.createElement('div');
+                c.style.position = 'fixed';
+                c.style.left = Math.random() * 100 + 'vw';
+                c.style.top = '-10px';
+                c.style.width = '5px';
+                c.style.height = '10px';
+                c.style.background = Math.random() > 0.5 ? '#ff0055' : '#fff';
+                c.style.transition = 'top 3s ease-in, transform 3s';
+                document.body.appendChild(c);
+                
+                setTimeout(() => {
+                    c.style.top = '110vh';
+                    c.style.transform = `rotate(${Math.random() * 360}deg)`;
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
